@@ -1,0 +1,46 @@
+@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+:root {
+  --background: #ffffff;
+  --foreground: #d3d3d3;
+  --primary: #4a5d5e;
+  --secondary: #344042;
+  --third: #4b4f5e;
+  --fourth: #374639;
+  --fifth: #344235;
+  --sixth: #FF9A50;
+}
+
+@theme {
+  --color-font-primary: var(--foreground)
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-third: var(--third);
+  --color-fourth: var(--fourth);
+  --color-fifth: var(--fifth);
+  --color-sixth: var(--sixth);
+}
+
+body {
+  color: var(--foreground);
+  background: var(--fourth);
+  font-family: "Montserrat", sans-serif;
+}
+
+@keyframes runText {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes runText2 {
+  from {
+    transform: translateX(50%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
