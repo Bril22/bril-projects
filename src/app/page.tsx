@@ -12,6 +12,7 @@ import * as motion from "motion/react-client"
 import { useInView } from "react-intersection-observer";
 import { ExperiencesPage } from "@/component/pages/experiences";
 import { SkillsPage } from "@/component/pages/skills";
+import { ContactPage } from "@/component/pages/contact";
 
 export default function Home() {
   const { ref, inView } = useInView({
@@ -29,6 +30,8 @@ export default function Home() {
       <SkillsPage />
       {/* Experiences */}
       <ExperiencesPage />
+      {/* Contact */}
+      <ContactPage />
     </div>
   );
 }

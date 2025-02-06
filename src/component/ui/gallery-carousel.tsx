@@ -85,16 +85,21 @@ export const GaleryCarousel = (props: Props) => {
                     arrowPosition={props?.arrow ? "CENTER" : undefined}
                     items={props.images?.map((d, i) => {
                         return (
-                            <div key={i} className="flex flex-col gap-2 relative">
+                            <div key={i} className="flex flex-col gap-2 relative h-auto pb-8">
                                 <div className="w-full h-full bg-transparent">
                                     <div className="relative h-[400px] md:h-[600px] lg:h-[800px]">
-                                        <Image alt={d?.title!} src={d?.image?.src!} fill className="object-cover object-top opacity-80 shadow-xl shadow-amber-600" />
+                                        <Image alt={d?.title!} src={d?.image?.src!} fill className="object-cover object-top opacity-80 shadow-md shadow-amber-600" />
                                     </div >
                                 </div>
                                 {d?.href && (
-                                    <Link href={d?.href} className="text-xs md:text-lg text-center absolute left-1/2 transform bottom-12 -translate-x-1/2 w-fit px-3 md:px-5 py-2 md:py-4 bg-sixth text-black font-semibold rounded-lg hover:scale-105 hover:border hover:border-black">
-                                        <p>{'Explore This Project'}</p>
+                                    <Link href={d?.href} className="text-xs md:text-lg text-center absolute left-1/2 transform bottom-16 -translate-x-1/2 w-fit px-3 md:px-5 py-2 md:py-4 bg-sixth text-black font-semibold rounded-lg hover:scale-105 hover:border hover:border-black">
+                                        <p>{'Explore'}</p>
                                     </Link>
+                                )}
+                                {d?.title && (
+                                    <div className="text-md md:text-xl text-center absolute transform bottom-0 md:-bottom-2 w-fit font-semibold z-20 px-4">
+                                        <p>{d?.title}</p>
+                                    </div>
                                 )}
                             </div>
                         );

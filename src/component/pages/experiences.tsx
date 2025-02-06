@@ -29,7 +29,6 @@ export function ExperiencesPage() {
                     </p>
                 </div>
                 {/* <Carousel carouselItems={MyExperiences} /> */}
-
             </motion.div>
             <GaleryCarousel
                 // title={title}

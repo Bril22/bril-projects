@@ -138,7 +138,7 @@ export const MyServices: ICardSkills[] = [
 export const MyExperiences: ICardSkills[] = [
     {
         image: GeonetImage,
-        title: "Geonet",
+        title: "Geonet Properties",
         description: "Geonet",
         href: "experiences/geonet",
     },
@@ -156,13 +156,13 @@ export const MyExperiences: ICardSkills[] = [
     },
     {
         image: BCAImage,
-        title: "BCA",
+        title: "Bank Central Asia",
         description: "BCA",
         href: "experiences/bca",
     },
     {
         image: QNPImage,
-        title: "QNP",
+        title: "Quorum Nusa Prestasi",
         description: "QNP",
         href: "experiences/qnp",
     },
