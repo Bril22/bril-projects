@@ -16,17 +16,17 @@ export const MainMenu: IMainMenu[] = [
     },
     {
         label: "Services",
-        href: "/",
+        href: "/services",
         active: true,
     },
     {
         label: "Portfolio",
-        href: "/",
+        href: "/portfolio",
         active: true,
     },
     {
         label: "Contact",
-        href: "/",
+        href: "/contact",
         active: true,
     }
 ]

@@ -46,7 +46,7 @@ function NavBar({
                         {menu?.map((item, i) => {
                             return (
                                 <li key={i} className="text-xl text-font-primary py-2 px-6 text-center border-b-2 md:border-b-0 hover:bg-sixth  border-sixth  md:hover:text-sixth md:hover:bg-transparent">
-                                    <Link href={item?.href!} onClick={() => setNavbar(!navbar)}>
+                                    <Link href={item?.href!}>
                                         {item.label}
                                     </Link>
                                 </li>
