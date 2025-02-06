@@ -33,23 +33,23 @@ export const MainMenu: IMainMenu[] = [
 
 export const SocialMedia: IMainMenu[] = [
   {
-    label: "Facebook",
-    href: "https://www.facebook.com",
+    label: "Linkedin",
+    href: "https://www.linkedin.com/in/briliannatan",
     icon: IconNames.linkedin,
   },
   {
     label: "Instagram",
-    href: "https://www.instagram.com",
+    href: "https://www.instagram.com/briliantnz",
     icon: IconNames.instagram,
   },
   {
-    label: "Twitter",
-    href: "https://www.twitter.com",
+    label: "Github",
+    href: "https://www.github.com/Bril22",
     icon: IconNames.github,
   },
   {
     label: "Email",
-    href: "mailto:your@email.com",
+    href: "mailto:fttmbril22@gmail.com",
     icon: IconNames.email,
   },
 ]

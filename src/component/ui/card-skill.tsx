@@ -88,7 +88,7 @@ export const CardWithBackground = ({
 
                     {/* Title (Front) */}
                     <div className='absolute inset-0 flex w-full h-full items-end justify-center'>
-                        <h3 className="max-w-xs p-4 h-fit flex items-end justify-center text-2xl font-bold transition-opacity duration-500 group-hover:opacity-0 shadow-2xl">
+                        <h3 className="max-w-xs p-4 h-fit text-center flex items-end justify-center text-2xl font-bold transition-opacity duration-500 group-hover:opacity-0 shadow-2xl">
                             {item.title}
                         </h3>
                     </div>
