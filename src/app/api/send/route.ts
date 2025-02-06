@@ -12,24 +12,24 @@ export async function POST(req: Request, res: NextApiResponse) {
             return new Response('Missing fields', { status: 400 });
         }
         console.log('data:', {firstName, phoneNumber, email, subject, message})
-        // const { data, error } = await resend.emails.send({
-        //     from: 'contact-bril@resend.dev',
-        //     to: ['fttmbril22@gmail.com'],
-        //     subject: 'Test contact email',
-        //     react: EmailTemplate({
-        //         firstName,
-        //         phoneNumber,
-        //         email,
-        //         subject,
-        //         message
-        //     }),
-        // });
+        const { data, error } = await resend.emails.send({
+            from: 'contact-bril@resend.dev',
+            to: ['fttmbril22@gmail.com'],
+            subject: 'Test contact email',
+            react: EmailTemplate({
+                firstName,
+                phoneNumber,
+                email,
+                subject,
+                message
+            }),
+        });
 
-        // if (error) {
-        //     return Response.json({ error }, { status: 500 });
-        // }
+        if (error) {
+            return Response.json({ error }, { status: 500 });
+        }
 
-        // return Response.json(data);
+        return Response.json(data);
     } catch (error) {
         return Response.json({ error }, { status: 500 });
     }
