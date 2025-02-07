@@ -63,12 +63,12 @@ export default function ContactForm() {
             <form onSubmit={handleSubmit} className="rounded-lg relative w-full p-8 md:p-16 border border-dashed border-sixth flex flex-col gap-6 bg-black/20">
                 <p className="font-semibold text-xl md:text-2xl">Send me a message</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <input type="text" name="firstName" placeholder="Your Name" value={formData.firstName} onChange={handleChange} required className="w-full p-2 border border-sixth bg-fourth rounded-lg" />
-                    <input type="text" name="phoneNumber" placeholder="Phone Number" value={formData.phoneNumber} onChange={handleChange} required className="w-full p-2 border border-sixth bg-fourth rounded-lg" />
+                    <input type="text" name="firstName" placeholder="Your Name" value={formData.firstName} onChange={handleChange} required className="w-full p-2 border border-sixth/20 bg-fourth rounded-lg focus:outline-sixth" />
+                    <input type="text" name="phoneNumber" placeholder="Phone Number" value={formData.phoneNumber} onChange={handleChange} required className="w-full p-2 border border-sixth/20 bg-fourth rounded-lg focus:outline-sixth" />
                 </div>
-                <input type="email" name="email" value={formData.email} placeholder="Email Address" onChange={handleChange} required className="w-full p-2 border border-sixth bg-fourth rounded-lg" />
-                <input type="text" name="subject" value={formData.subject} placeholder="Your Subject" onChange={handleChange} required className="w-full p-2 border border-sixth bg-fourth rounded-lg" />
-                <textarea name="message" value={formData.message} placeholder="Your Message" onChange={handleChange} required className="w-full p-2 border border-sixth bg-fourth rounded-lg h-[200px]" />
+                <input type="email" name="email" value={formData.email} placeholder="Email Address" onChange={handleChange} required className="w-full p-2 border border-sixth/20 bg-fourth rounded-lg focus:outline-sixth" />
+                <input type="text" name="subject" value={formData.subject} placeholder="Your Subject" onChange={handleChange} required className="w-full p-2 border border-sixth/20 bg-fourth rounded-lg focus:outline-sixth" />
+                <textarea name="message" value={formData.message} placeholder="Your Message" onChange={handleChange} required className="w-full p-2 border border-sixth/20 bg-fourth rounded-lg h-[200px] focus:outline-sixth" />
                 <ReCAPTCHA
                     sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
                     onChange={setCaptchaToken}
