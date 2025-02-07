@@ -140,42 +140,49 @@ export const MyExperiences: ICardSkills[] = [
         image: GeonetImage,
         title: "Geonet Properties",
         description: "Geonet",
-        href: "experiences/geonet",
+        // href: "experiences/geonet",
+        href: "#"
     },
     {
         image: JatisImage,
         title: "Jatis Mobile",
         description: "Jatis Mobile",
-        href: "experiences/jatis-mobile",
+        // href: "experiences/jatis-mobile",
+        href: "#"
     },
     {
         image: SimpliImage,
         title: "Simplidots",
         description: "Simplidots",
-        href: "experiences/simplidots",
+        // href: "experiences/simplidots",
+        href: "#"
     },
     {
         image: BCAImage,
         title: "Bank Central Asia",
         description: "BCA",
-        href: "experiences/bca",
+        // href: "experiences/bca",
+        href: "#"
     },
     {
         image: QNPImage,
         title: "Quorum Nusa Prestasi",
         description: "QNP",
-        href: "experiences/qnp",
+        // href: "experiences/qnp",
+        href: "#"
     },
     {
         image: BragaImage,
         title: "Braga Tech",
         description: "Braga Tech",
-        href: "experiences/braga-tech",
+        // href: "experiences/braga-tech",
+        href: "#"
     },
     {
         image: HoomixImage,
         title: "Hoomix",
         description: "Hoomix",
-        href: "experiences/hoomix",
+        // href: "experiences/hoomix",
+        href: "#"
     }
 ]

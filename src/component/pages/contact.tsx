@@ -1,19 +1,23 @@
 'use client'
-import React, { useState } from 'react'
+import React from 'react'
 import { ButtonBorderOnlyAngle } from '../ui/button'
-import { CardSkills, SkillsSection } from '../ui/card-skill'
-import { MySkills, OtherSkills } from '@/constants/home'
 import * as motion from "motion/react-client"
 import { useInView } from "react-intersection-observer";
 import ContactForm from '../ui/contact-form'
 
-export function ContactPage() {
+interface IContactPage {
+    withPadding?: boolean;
+}
+
+export function ContactPage({
+    withPadding = true
+}: IContactPage) {
     const { ref: servicesRef, inView: serviceView } = useInView({
         threshold: 0.1,
         triggerOnce: true
     });
     return (
-        <div className='md:py-16 py-8'>
+        <div className={`${withPadding ? "md:py-16 py-8" : ""}`}>
             <motion.div
                 ref={servicesRef}
                 initial={{ opacity: 0, scale: 0.5 }}
