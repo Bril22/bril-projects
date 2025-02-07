@@ -1,34 +1,39 @@
 import { IconNames } from "@/component/icons/interface";
 
 export interface IMainMenu {
-    label: string;
-    icon?: IconNames;
-    href?: string;
-    children?: IMainMenu[];
-    active?: boolean;
+  label: string;
+  icon?: IconNames;
+  href?: string;
+  children?: IMainMenu[];
+  active?: boolean;
 }
 
 export const MainMenu: IMainMenu[] = [
-    {
-        label: "Home",
-        href: "/",
-        active: true,
-    },
-    {
-        label: "Services",
-        href: "/services",
-        active: true,
-    },
-    {
-        label: "Portfolio",
-        href: "/portfolio",
-        active: true,
-    },
-    {
-        label: "Contact",
-        href: "/contact",
-        active: true,
-    }
+  {
+    label: "Home",
+    href: "/",
+    active: true,
+  },
+  {
+    label: "About",
+    href: "/about",
+    active: true,
+  },
+  // {
+  //   label: "Services",
+  //   href: "/services",
+  //   active: true,
+  // },
+  // {
+  //   label: "Portfolio",
+  //   href: "/portfolio",
+  //   active: true,
+  // },
+  {
+    label: "Contact",
+    href: "/contact",
+    active: true,
+  }
 ]
 
 export const SocialMedia: IMainMenu[] = [

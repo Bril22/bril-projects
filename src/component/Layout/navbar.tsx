@@ -2,11 +2,12 @@
 import { IMainMenu } from '@/constants/layout';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Logo from "@public/icon/logo.png"
 import { Icons } from '../icons';
 import { IconNames } from '../icons/interface';
 import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from 'next/navigation';
 interface INavbar {
     menu?: IMainMenu[];
 }
@@ -15,6 +16,13 @@ function NavBar({
     menu
 }: INavbar) {
     const [navbar, setNavbar] = useState(false);
+    const [active, setActive] = useState<string | null>();
+    const pathname = usePathname()
+    useEffect(() => {
+        setActive(pathname);
+    }, [pathname])
+
+    console.log('pathname:', pathname);
     return (
         <nav className="relative w-full bg-transparent top-0 left-0 right-0 z-50 h-32">
             <div className="md:flex justify-between px-4 container mx-auto md:items-center">
@@ -45,7 +53,7 @@ function NavBar({
                     <ul className="h-screen md:h-auto items-center justify-center md:flex ">
                         {menu?.map((item, i) => {
                             return (
-                                <li key={i} className="text-xl text-font-primary py-2 px-6 text-center border-b-2 md:border-b-0 hover:bg-sixth  border-sixth  md:hover:text-sixth md:hover:bg-transparent">
+                                <li key={i} className={`text-xl text-font-primary py-2 px-6 text-center hover:bg-sixth md:hover:text-sixth md:hover:bg-transparent ${active === item.href ? '!border-sixth !border-b-4' : ''}`}>
                                     <Link href={item?.href!}>
                                         {item.label}
                                     </Link>
@@ -76,12 +84,9 @@ function NavBar({
                             transition={{ duration: 0.5 }}
                             className="fixed w-full pb-3 bg-fifth z-50"
                         >
-                            <ul className="h-fit w-full flex flex-col items-center justify-start py-8">
+                            <ul className="h-fit w-full flex flex-col items-center justify-start py-8 gap-4">
                                 {menu?.map((item, i) => (
-                                    <li
-                                        key={i}
-                                        className="text-xl text-font-primary py-2 px-6 text-center border-b-2 md:border-b-0 hover:bg-sixth border-sixth md:hover:text-sixth md:hover:bg-transparent"
-                                    >
+                                    <li key={i} className={`text-xl text-font-primary py-2 px-6 text-center hover:bg-sixth md:hover:text-sixth md:hover:bg-transparent ${active === item.href ? '!border-sixth !border-b-4' : ''}`}>
                                         <Link href={item?.href!} onClick={() => setNavbar(!navbar)}>
                                             {item.label}
                                         </Link>
