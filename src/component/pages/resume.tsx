@@ -96,7 +96,7 @@ export function ResumePage({
                             </div>
                             <div className='flex flex-col gap-2'>
                                 <p className='text-xs'>{`Nov 2023 - Oct 2024`}</p>
-                                <p className='md:text-xl text-md font-semibold text-sixth'>{`SIT Middle Officer`}</p>
+                                <p className='md:text-xl text-md font-semibold text-sixth'>{`Software Engineer`}</p>
                                 <p>{`Freelance`}</p>
                             </div>
                             <div className='flex flex-col gap-2'>

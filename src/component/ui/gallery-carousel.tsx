@@ -76,7 +76,7 @@ export const GaleryCarousel = (props: Props) => {
             {props.images && props.images.length > 0 ? (
                 <EmblaCarousel
                     options={OPTIONS}
-                    autoPlay={false}
+                    autoPlay={true}
                     openGallery={(idx) => {
                         openGallery(idx);
                     }}
