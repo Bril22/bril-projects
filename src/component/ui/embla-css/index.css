@@ -97,13 +97,14 @@
     width: 10px;
     height: 10px;
     border-radius: 100%;
-    background-color: white;
+    background-color: #FF9A50;
     margin: 0 2px;
     cursor: pointer;
+    border: 2px solid #4a5d5e;
   }
   
   .embla__dot--selected {
-    width: 40px;
+    width: 20px;
     border-radius: 5%;
   }
   

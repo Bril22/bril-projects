@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { ButtonBorderOnlyAngle } from '../ui/button'
 import { CardSkills, SkillsSection } from '../ui/card-skill'
@@ -25,7 +26,7 @@ export function ExperiencesPage() {
                     <ButtonBorderOnlyAngle label="My Experiences" textColor="text-sixth" />
                     <h2 className="md:text-6xl text-4xl font-bold">{`What I've Done`}</h2>
                     <p className='max-w-xl'>
-                        {`Over the years, I have honed my skills in **web development, automation, and cloud technologies**, working on projects that merge creativity with functionality.`}
+                        {`Over the years, I have honed my skills in Frontend, Backend, Automation, and Cloud Technologies, working on projects that merge creativity with functionality.`}
                     </p>
                 </div>
                 {/* <Carousel carouselItems={MyExperiences} /> */}
