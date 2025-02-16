@@ -25,7 +25,7 @@ import UXImage from "@public/services/user-experienes.jpg"
 import GeonetImage from "@public/company/geonet.png"
 import JatisImage from "@public/company/jatis-mobile.png"
 import SimpliImage from "@public/company/simplidots.png"
-import BCAImage from "@public/company/bca.png"
+import BCAImage from "@public/company/bca-new.png"
 import QNPImage from "@public/company/qnp.png"
 import BragaImage from "@public/company/braga-tech.png"
 import HoomixImage from "@public/company/hoomix.png"
@@ -164,13 +164,13 @@ export const MyExperiences: ICardSkills[] = [
         // href: "experiences/bca",
         href: "#"
     },
-    {
-        image: QNPImage,
-        title: "Quorum Nusa Prestasi",
-        description: "QNP",
-        // href: "experiences/qnp",
-        href: "#"
-    },
+    // {
+    //     image: QNPImage,
+    //     title: "Quorum Nusa Prestasi",
+    //     description: "QNP",
+    //     // href: "experiences/qnp",
+    //     href: "#"
+    // },
     {
         image: BragaImage,
         title: "Braga Tech",
