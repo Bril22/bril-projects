@@ -81,6 +81,7 @@ export const GaleryCarousel = (props: Props) => {
                         openGallery(idx);
                     }}
                     arrow={props?.arrow}
+                    colNumber={2}
                     noMarginTop={props?.noMarginTop}
                     arrowPosition={props?.arrow ? "CENTER" : undefined}
                     dot
@@ -88,7 +89,7 @@ export const GaleryCarousel = (props: Props) => {
                         return (
                             <Link href={d?.href!} key={i} className="flex flex-col gap-2 relative h-auto pb-8">
                                 <div className="w-full h-full bg-transparent">
-                                    <div className="relative h-40 lg:h-[550px] overflow-hidden">
+                                    <div className="relative h-68 lg:h-[550px] overflow-hidden">
                                         <Image alt={d?.title!} src={d?.image?.src!} fill className="object-cover object-top opacity-80 shadow-md shadow-amber-600 hover:scale-110 transition-transform duration-300" />
                                     </div >
                                 </div>

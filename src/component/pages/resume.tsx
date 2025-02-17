@@ -22,6 +22,9 @@ export function ResumePage({
     const handleClickCV = () => {
         window.open('/pdf/my-cv.pdf', '_blank');
     }
+    const handleClickJournal = () => {
+        window.open('/pdf/my-journal.pdf', '_blank');
+    }
     const { ref, inView } = useInView({
         threshold: 0.1,
         triggerOnce: true
@@ -56,10 +59,10 @@ export function ResumePage({
                         <p className='text-2xl font-semibold'>{'Publication'}</p>
                         <p className='text-xs'>{`2022`}</p>
                         <p className='md:text-xl text-md font-semibold text-sixth'>{`Seismic Hazard Potential in Yogyakarta Based on HVSR Curve Estimation`}</p>
-                        <Link href={'https://iopscience.iop.org/article/10.1088/1755-1315/1047/1/012028/pdf'} className='w-full flex items-center cursor-pointer hover:scale-105' target='_blank'>
+                        <div onClick={handleClickJournal}  className='w-full flex items-center cursor-pointer hover:scale-x-110 hover:translate-x-1 transition-transform duration-300'>
                             <p>{`International Journal Of Physics`}</p>
                             <Icons name={IconNames['arrow-right']} size={24} className='' />
-                        </Link>
+                        </div>
                         <CustomBorder />
                     </div>
                     <div className='w-full md:col-span-2 lg:col-auto flex flex-col gap-4 items-start justify-between relative p-8 border border-dashed border-sixth'>
