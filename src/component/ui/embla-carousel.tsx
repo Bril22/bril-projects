@@ -129,7 +129,7 @@ export const EmblaCarousel = ({
 
   return (
     <div className="relative">
-      <div className={`embla embla_${colNumber ? colNumber : 2}_col`}>
+      <div className={`embla embla_${colNumber && window.innerWidth > 768 ? colNumber : 1}_col`}>
         <div
           className={`embla__viewport relative ${noMarginTop ? "" : "py-4"}`}
           ref={emblaRef}
@@ -172,7 +172,7 @@ export const EmblaCarousel = ({
         ) : null}
       </div>
       {dot ? (
-        <div className="embla__dots pt-2">
+        <div className="embla__dots">
           {scrollSnaps.map((_, index) => (
             <DotButton
               key={index}
