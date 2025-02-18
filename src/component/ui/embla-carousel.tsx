@@ -20,16 +20,16 @@ interface Props {
   autoPlay?: boolean;
   arrow?: boolean;
   arrowPosition?:
-    | "BOTTOM LEFT"
-    | "BOTTOM RIGHT"
-    | "BOTTOM CENTER"
-    | "BOTTOM BEETWEEN"
-    | "CENTER"
-    | "CENTER BETWEEN"
-    | "TOP LEFT"
-    | "TOP RIGHT"
-    | "TOP CENTER"
-    | "TOP BEETWEEN";
+  | "BOTTOM LEFT"
+  | "BOTTOM RIGHT"
+  | "BOTTOM CENTER"
+  | "BOTTOM BEETWEEN"
+  | "CENTER"
+  | "CENTER BETWEEN"
+  | "TOP LEFT"
+  | "TOP RIGHT"
+  | "TOP CENTER"
+  | "TOP BEETWEEN";
   dot?: boolean;
   colNumber?: number;
   thumb?: boolean;
@@ -56,7 +56,8 @@ export const EmblaCarousel = ({
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [
     Autoplay({ playOnInit: autoPlay, delay: 3000 })
   ])
-  
+  const [emblaClass, setEmblaClass] = useState(`embla_1_col`);
+
   const [emblaThumbsRef, emblaThumbsApi] = useEmblaCarousel({
     containScroll: "keepSnaps",
     dragFree: true,
@@ -98,26 +99,43 @@ export const EmblaCarousel = ({
     emblaApi.on("select", onSelect);
   }, [emblaApi, onInit, onSelect]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (typeof window !== 'undefined') {
+        setEmblaClass(`embla embla_${colNumber && window.innerWidth > 768 ? colNumber : 1}_col`);
+      }
+    };
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [colNumber]);
+
+  console.log('emblaClass', emblaClass)
+
   const arrowClass =
     arrowPosition === "CENTER"
       ? {
-          back: "btn btn-circle absolute z-10 left-10 top-1/2",
-          next: "btn btn-circle absolute z-10 right-10 top-1/2",
-        }
+        back: "btn btn-circle absolute z-10 left-10 top-1/2",
+        next: "btn btn-circle absolute z-10 right-10 top-1/2",
+      }
       : arrowPosition === "BOTTOM BEETWEEN"
-      ? {
+        ? {
           back: "absolute left-0 bottom-0 bg-transparent text-white hover:scale-125",
           next: "absolute right-0 bottom-0 bg-transparent text-white hover:scale-125",
         }
-      : arrowPosition === "CENTER BETWEEN"
-      ? {
-          back: "btn btn-circle absolute z-10 left-10 lg:-left-6 top-1/2",
-          next: "btn btn-circle absolute z-10 right-10 lg:-right-6 top-1/2",
-        }
-      : {
-          back: "btn btn-circle",
-          next: "btn btn-circle",
-        };
+        : arrowPosition === "CENTER BETWEEN"
+          ? {
+            back: "btn btn-circle absolute z-10 left-10 lg:-left-6 top-1/2",
+            next: "btn btn-circle absolute z-10 right-10 lg:-right-6 top-1/2",
+          }
+          : {
+            back: "btn btn-circle",
+            next: "btn btn-circle",
+          };
 
   const onThumbClick = useCallback(
     (index: number) => {
@@ -129,7 +147,7 @@ export const EmblaCarousel = ({
 
   return (
     <div className="relative">
-      <div className={`embla embla_${colNumber && window.innerWidth > 768 ? colNumber : 1}_col`}>
+      <div className={emblaClass}>
         <div
           className={`embla__viewport relative ${noMarginTop ? "" : "py-4"}`}
           ref={emblaRef}
@@ -138,11 +156,10 @@ export const EmblaCarousel = ({
             {items.map((item, i) => (
               <div
                 onClick={() => setSelectedIndex(i)}
-                className={`embla__slide z-20 ${
-                  selectedIndex === i
+                className={`embla__slide z-20 ${selectedIndex === i
                     ? null
                     : "embla__class-names cursor-pointer"
-                }`}
+                  }`}
                 key={i}
               >
                 <div
