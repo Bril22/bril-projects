@@ -59,7 +59,7 @@ export function ResumePage({
                         <p className='text-2xl font-semibold'>{'Publication'}</p>
                         <p className='text-xs'>{`2022`}</p>
                         <p className='md:text-xl text-md font-semibold text-sixth'>{`Seismic Hazard Potential in Yogyakarta Based on HVSR Curve Estimation`}</p>
-                        <div onClick={handleClickJournal}  className='w-full flex items-center cursor-pointer hover:scale-x-110 hover:translate-x-1 transition-transform duration-300'>
+                        <div onClick={handleClickJournal} className='w-full flex items-center cursor-pointer hover:scale-x-110 hover:translate-x-1 transition-transform duration-300'>
                             <p>{`International Journal Of Physics`}</p>
                             <Icons name={IconNames['arrow-right']} size={24} className='' />
                         </div>
@@ -70,8 +70,8 @@ export function ResumePage({
                             <p className='text-2xl font-semibold'>{'Stay With Me'}</p>
                             <div className="flex items-center gap-3">
                                 {socialMedia?.map((item, i) => (
-                                    <Link key={i} href={item.href!} target="_blank">
-                                        <div className="border rounded-full p-2 hover:border-sixth hover:text-sixth">
+                                    <Link key={i} href={item.href!} target="_blank" aria-label={`Link to ${item.icon}`}>
+                                        <div className="border rounded-full p-2 hover:border-sixth hover:text-sixth" aria-hidden="true">
                                             <Icons name={item.icon!} size={24} />
                                         </div>
                                     </Link>
@@ -141,7 +141,7 @@ export function ResumePage({
                         <div className='grid grid-cols-4 w-full gap-6 justify-items-center'>
                             {AllSkills.map((item, i) => (
                                 <div key={i} className="flex flex-col items-center min-w-32 gap-4 h-full justify-end">
-                                    <Image alt={item.title!} src={item.image!} width={400} height={400}  className={`transition-transform duration-300 ease-in-out transform hover:scale-125 ${item.title?.includes('Mongo') ? 'w-4' : 'w-8'}`}  />
+                                    <Image alt={item.title!} src={item.image!} width={400} height={400} className={`transition-transform duration-300 ease-in-out transform hover:scale-125 ${item.title?.includes('Mongo') ? 'w-4' : 'w-8'}`} />
                                     <p className="text-xs font-semibold">{item.title}</p>
                                 </div>
                             ))}
