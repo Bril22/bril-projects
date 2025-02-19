@@ -78,9 +78,9 @@ export const CardWithBackground = ({
                             <Image
                                 src={item.image!}
                                 alt={item.title!}
-                                layout="fill"
-                                objectFit="cover"
-                                className="rounded-lg opacity-60"
+                                width={500}
+                                height={500}
+                                className="w-full h-full rounded-lg opacity-60 object-cover"
                                 loading='lazy'
                             />
                         </div>

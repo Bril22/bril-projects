@@ -21,22 +21,22 @@ export function Footer({
                     {/* <div
                         className={`md:flex justify-end items-center`}
                     > */}
-                        <ul className={`grid ${menu && menu?.length == 3 ? "grid-cols-3" : "grid-cols-2"} md:items-center md:justify-center md:flex gap-6`}>
-                            {menu?.map((item, i) => {
-                                return (
-                                    <li key={i} className="text-xl text-font-primary text-center hover:bg-sixth border-sixth md:hover:text-sixth md:hover:bg-transparent">
-                                        <Link href={item?.href!}>
-                                            {item.label}
-                                        </Link>
-                                    </li>
-                                );
-                            })}
-                        </ul>
+                    <ul className={`grid ${menu && menu?.length == 3 ? "grid-cols-3" : "grid-cols-2"} md:items-center md:justify-center md:flex gap-6`}>
+                        {menu?.map((item, i) => {
+                            return (
+                                <li key={i} className="text-xl text-font-primary text-center hover:bg-sixth border-sixth md:hover:text-sixth md:hover:bg-transparent">
+                                    <Link href={item?.href!}>
+                                        {item.label}
+                                    </Link>
+                                </li>
+                            );
+                        })}
+                    </ul>
                     {/* </div> */}
                     <div className="flex items-center gap-3">
                         {socialMedia?.map((item, i) => (
-                            <Link key={i} href={item.href!} target="_blank">
-                                <div className="border rounded-full p-2 hover:border-sixth hover:text-sixth">
+                            <Link key={i} href={item.href!} target="_blank" aria-label={`Link to ${item.icon}`}>
+                                <div className="border rounded-full p-2 hover:border-sixth hover:text-sixth" aria-hidden="true">
                                     <Icons name={item.icon!} size={24} />
                                 </div>
                             </Link>

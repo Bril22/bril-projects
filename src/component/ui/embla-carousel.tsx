@@ -114,8 +114,6 @@ export const EmblaCarousel = ({
     };
   }, [colNumber]);
 
-  console.log('emblaClass', emblaClass)
-
   const arrowClass =
     arrowPosition === "CENTER"
       ? {
@@ -266,6 +264,7 @@ export const DotButton: React.FC<DotButtonPropType> = (props) => {
       }
       type="button"
       onClick={onClick}
+      aria-label={`Dot button ${selected ? 'selected' : 'not selected'}`}
     />
   );
 };

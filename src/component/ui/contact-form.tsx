@@ -72,6 +72,7 @@ export default function ContactForm() {
                 <ReCAPTCHA
                     sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
                     onChange={setCaptchaToken}
+                    size="invisible"
                 />
                 {errorMessage && (
                     <p className="text-red-600">{errorMessage}</p>

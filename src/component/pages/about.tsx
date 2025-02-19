@@ -39,8 +39,8 @@ export function AboutPage({
                             <ButtonBorderOnlyAngle label="Welcome to my page" textColor="text-sixth" />
                             <div className="flex items-center gap-3">
                                 {socialMedia?.map((item, i) => (
-                                    <Link key={i} href={item.href!} target="_blank">
-                                        <div className="border rounded-full p-2 hover:border-sixth hover:text-sixth">
+                                    <Link key={i} href={item.href!} target="_blank" aria-label={`Link to ${item.icon}`}>
+                                        <div className="border rounded-full p-2 hover:border-sixth hover:text-sixth" aria-hidden="true">
                                             <Icons name={item.icon!} size={24} />
                                         </div>
                                     </Link>
@@ -65,8 +65,8 @@ export function AboutPage({
 
                     </div>
                 </div>
-                <Image alt="ellise" src={Ellipse} width={500} height={500} className="absolute bottom-0 right-0 w-96 rounded-br-3xl" />
-                <Image alt="ellise" src={Ellipse} width={500} height={500} className="absolute top-0 left-0 w-64 rotate-180 rounded-tl-3xl" />
+                <div className="bg-sixth w-22 h-22 blur-3xl absolute top-0 left-0" />
+                <div className="bg-sixth w-44 h-32 blur-3xl absolute bottom-0 right-0" />
             </div>
         </motion.div>
     )
