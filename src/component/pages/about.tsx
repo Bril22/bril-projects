@@ -41,7 +41,7 @@ export function AboutPage({
                 animate={inView ? { y: [0, -20, 0], x: [0], opacity: 1 } : {}}
                 transition={{ duration: 0.8, ease: "easeInOut" }}
             >
-                <div className="w-full h-full relative border border-font-primary rounded-tl-3xl rounded-br-3xl py-8 md:py-32">
+                <div className="w-full h-full relative border border-font-primary rounded-tl-3xl rounded-br-3xl py-8 md:py-32 flex items-center">
                     <div className="relative flex items-center justify-start md:px-16 px-4 z-10">
                         <div className="flex flex-col gap-8 items-center md:items-start">
                             <div className="flex md:flex-row flex-col gap-12 items-center">

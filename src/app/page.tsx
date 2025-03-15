@@ -37,7 +37,7 @@ export default function Home() {
         {/* About */}
         <motion.div
           // style={{ y: translateY }}
-          className="relative z-10 h-screen bg-fourth pt-32"
+          className="relative z-10 h-full md:h-screen bg-fourth pt-32 flex"
         >
           <AboutPage socialMedia={SocialMedia} />
         </motion.div>
