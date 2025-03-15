@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { ButtonBorderOnlyAngle } from '../ui/button'
-import { CardSkills, CardWithBackground, SkillsSection } from '../ui/card-skill'
+import { CardWithBackground } from '../ui/card-skill'
 import { MyServices, OtherSkills } from '@/constants/home'
 import * as motion from "motion/react-client"
 import { useInView } from "react-intersection-observer";
@@ -12,7 +12,7 @@ export function ServicesPage() {
         triggerOnce: true
     });
     return (
-        <div className='bg-gradient-to-b from-fourth from-70% to-sixth/20 md:py-16 py-8'>
+        <div className='md:py-16 py-8 relative'>
             <motion.div
                 ref={servicesRef}
                 initial={{ y: -50, opacity: 0 }}

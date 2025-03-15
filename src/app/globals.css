@@ -1,13 +1,13 @@
 @import 'tailwindcss';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 :root {
-  --background: #ffffff;
+  --background: #F8F8F8;
   --foreground: #d3d3d3;
   --primary: #4a5d5e;
-  --secondary: #344042;
-  --third: #4b4f5e;
-  --fourth: #374639;
-  --fifth: #344235;
+  --secondary: #D4AF37;
+  --third: #1C1C1C;
+  --fourth: #022f2e;
+  --fifth: #0b4f4a;
   --sixth: #FF9A50;
 }
 
@@ -43,4 +43,20 @@ body {
   to {
     transform: translateX(0%);
   }
+}
+
+.scrollbar-hidden {
+  scrollbar-width: none;
+  /* Untuk Firefox */
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+  /* Untuk WebKit */
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  background: transparent;
 }

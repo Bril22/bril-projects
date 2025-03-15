@@ -70,7 +70,7 @@ export const CardWithBackground = ({
     return (
         <>
             {skills.map((item, i) => (
-                <Link href={'#'} key={i} className="group relative h-[400px] w-full perspective bg-black">
+                <Link href={'#'} key={i} className="group relative h-[400px] rounded-lg w-full perspective bg-black">
                     {/* Flip Container */}
                     <motion.div className="relative w-full h-full transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180">
                         {/* Front Side - Image */}
