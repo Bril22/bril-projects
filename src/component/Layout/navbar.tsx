@@ -8,6 +8,7 @@ import { Icons } from '../icons';
 import { IconNames } from '../icons/interface';
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
 interface INavbar {
     menu?: IMainMenu[];
 }
@@ -29,7 +30,7 @@ function NavBar({
     const controlNavbar = () => {
         const currentScroll = window.scrollY;
 
-        if (currentScroll > lastScrollY && currentScroll > 20) {
+        if (currentScroll > lastScrollY && currentScroll > 60) {
             setShow(false);
         }
         else if (currentScroll < lastScrollY) {
@@ -53,7 +54,7 @@ function NavBar({
             const currentScroll = window.scrollY;
             if (currentScroll === 0) {
                 setNavbarBg('bg-transparent');
-            } else if (currentScroll > 0 && currentScroll < 20) {
+            } else if (currentScroll > 0 && currentScroll < 60) {
                 setNavbarBg('bg-forth');
             } else {
                 setNavbarBg('bg-fifth');
@@ -68,8 +69,12 @@ function NavBar({
 
     return (
         <>
-            <div className='h-32' />
-            <nav className={`fixed w-full top-0 left-0 right-0 z-50 h-32 ${show ? `opacity-100 translate-y-0 ${navbarBg}` : 'opacity-0 -translate-y-full'} transition-all duration-300 ease-in-out`}>
+            {/* <div className='h-32' /> */}
+            <nav className={cn(
+                `fixed w-full top-0 left-0 right-0 z-50 h-32`,
+                 `${show ? `opacity-100 translate-y-0 ${navbarBg}` : 'opacity-0 -translate-y-full'}`,
+                 `transition-all duration-600 ease-in-out`
+            )}>
                 <div className="md:flex justify-between px-4 container mx-auto md:items-center">
                     <div>
                         <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -119,8 +124,8 @@ function NavBar({
                                 animate={{ opacity: 0.4 }}
                                 exit={{ opacity: 0 }}
                                 transition={{ duration: 0.3 }}
-                                className="fixed inset-0 bg-black backdrop-blur-3xl z-10"
-                                onClick={() => setNavbar(false)} // Close menu when backdrop is clicked
+                                className="fixed inset-0 bg-black backdrop-blur-3xl z-10 h-screen"
+                                onClick={() => setNavbar(false)}
                             />
                             <motion.div
                                 initial={{ opacity: 0, y: -50 }}

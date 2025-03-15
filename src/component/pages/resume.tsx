@@ -49,7 +49,7 @@ export function ResumePage({
                         <p className='text-2xl font-semibold'>{'Education'}</p>
                         <div className='w-full flex justify-between items-center'>
                             <p className='text-xs'>{`2017 - 2022`}</p>
-                            <p className='font-semibold'>{`3.02/4`}</p>
+                            {/* <p className='font-semibold'>{`3.02/4`}</p> */}
                         </div>
                         <p className='md:text-xl text-md font-semibold text-sixth'>{`Bachelor of Geophysical Engineering`}</p>
                         <p>{`Bandung Institute of Technology`}</p>

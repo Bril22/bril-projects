@@ -16,7 +16,7 @@ export function SkillsPage() {
         triggerOnce: true
     });
     return (
-        <div className='bg-gradient-to-b from-sixth/20 from-30% to-fifth md:py-16 py-8'>
+        <div className='bg-gradient-to-b from-fourth from-30% to-fifth md:py-16 py-8'>
             <div
                 className="container mx-auto px-4 relative flex flex-col gap-8 md:gap-16 items-center justify-center"
             >

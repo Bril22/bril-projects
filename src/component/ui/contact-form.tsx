@@ -21,10 +21,10 @@ export default function ContactForm() {
         subject: '',
         message: ''
     });
-    const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+    // const [captchaToken, setCaptchaToken] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState("");
-    const [errorMessage, setErrorMessage] = useState("")
+    // const [errorMessage, setErrorMessage] = useState("")
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -35,19 +35,25 @@ export default function ContactForm() {
         setLoading(true);
         setSuccess("");
 
-        if (!captchaToken) {
-            setErrorMessage("Please complete reCAPTCHA.");
-            setLoading(false);
-            return;
-        }
+        // if (!captchaToken) {
+        //     setErrorMessage("Please complete reCAPTCHA.");
+        //     setLoading(false);
+        //     return;
+        // }
 
         const response = await fetch("/api/send", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ ...formData, captchaToken }),
+            body: JSON.stringify({ ...formData }),
         });
 
-        const result = await response.json();
+        // const response = await fetch("/api/send", {
+        //     method: "POST",
+        //     headers: { "Content-Type": "application/json" },
+        //     body: JSON.stringify({ ...formData, captchaToken }),
+        // });
+
+        await response.json();
         if (response.ok) {
             setSuccess("Message sent successfully!");
             setFormData({ firstName: "", phoneNumber: "", email: "", subject: "", message: "" });
@@ -69,16 +75,24 @@ export default function ContactForm() {
                 <input type="email" name="email" value={formData.email} placeholder="Email Address" onChange={handleChange} required className="w-full p-2 border border-sixth/20 bg-fourth rounded-lg focus:outline-sixth" />
                 <input type="text" name="subject" value={formData.subject} placeholder="Your Subject" onChange={handleChange} required className="w-full p-2 border border-sixth/20 bg-fourth rounded-lg focus:outline-sixth" />
                 <textarea name="message" value={formData.message} placeholder="Your Message" onChange={handleChange} required className="w-full p-2 border border-sixth/20 bg-fourth rounded-lg h-[200px] focus:outline-sixth" />
-                <ReCAPTCHA
+                {/* <ReCAPTCHA
                     sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
                     onChange={setCaptchaToken}
                     // size="invisible"
-                />
-                {errorMessage && (
+                /> */}
+                {/* {errorMessage && (
                     <p className="text-red-600">{errorMessage}</p>
-                )}
-                {!success ? (
+                )} */}
+                {/* {!success ? (
                     <button type="submit" disabled={loading || !captchaToken} className={`px-5 py-4 rounded-full bg-fifth w-fit flex items-center gap-2 justify-center cursor-pointer ${!captchaToken ? "hover:border-none" : "hover:border hover:border-white"}`}>
+                        <p>{loading ? "Sending..." : "Send Message"}</p>
+                        <Icons name={IconNames["arrow-right"]} size={24} />
+                    </button>
+                ) : (
+                    <p className="mt-2 text-green-600">{success}</p>
+                )} */}
+                {!success ? (
+                    <button type="submit" disabled={loading} className={`px-5 py-4 rounded-full bg-fifth w-fit flex items-center gap-2 justify-center cursor-pointer hover:border hover:border-white`}>
                         <p>{loading ? "Sending..." : "Send Message"}</p>
                         <Icons name={IconNames["arrow-right"]} size={24} />
                     </button>
