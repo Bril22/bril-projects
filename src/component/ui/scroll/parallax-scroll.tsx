@@ -56,6 +56,7 @@ export const ParallaxScroll = ({
                                     autoPlay
                                     loop
                                     muted
+                                    playsInline
                                     // preload="metadata" // Mengoptimalkan pemuatan video
                                     // loading="lazy" // Menunda pemuatan video
                                 >
@@ -89,6 +90,7 @@ export const ParallaxScroll = ({
                                 autoPlay
                                 loop
                                 muted
+                                playsInline
                                 // preload="metadata" // Mengoptimalkan pemuatan video
                                 // loading="lazy" // Menunda pemuatan video
                             >
@@ -126,6 +128,7 @@ export const ParallaxScroll = ({
                                 autoPlay
                                 loop
                                 muted
+                                playsInline
                                 // preload="metadata" // Mengoptimalkan pemuatan video
                                 // loading="lazy" // Menunda pemuatan video
                             >
