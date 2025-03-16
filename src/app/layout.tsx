@@ -4,6 +4,8 @@ import "./globals.css";
 import NavBar from "@/component/Layout/navbar";
 import { MainMenu, SocialMedia } from "@/constants/layout";
 import { Footer } from "@/component/Layout/footer";
+import ReactLenis from "lenis/react";
+export { ReactLenis } from "@/lib/lenis"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,13 +29,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <NavBar menu={MainMenu} />
-        {children}
-        <Footer menu={MainMenu} socialMedia={SocialMedia}/>
-      </body>
+      <ReactLenis root>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <NavBar menu={MainMenu} />
+          {children}
+          <Footer menu={MainMenu} socialMedia={SocialMedia} />
+        </body>
+      </ReactLenis>
     </html>
   );
 }
