@@ -11,6 +11,8 @@ import * as motion from "motion/react-client"
 import { useInView } from "react-intersection-observer";
 import { CursorFollow } from '../ui/cursor/cursor-follow';
 import Aurora from '../ui/background/aurora-background';
+import { LinkPreview } from '../ui/cursor/link-preview';
+import DownloadCV from '@public/download-cv.jpeg'
 
 interface IAbout {
     socialMedia?: IMainMenu[];
@@ -22,10 +24,6 @@ export function AboutPage({
     const handleClickCV = () => {
         window.open('/pdf/my-cv.pdf', '_blank');
     }
-    const { ref, inView } = useInView({
-        threshold: 0.1,
-        triggerOnce: true
-    });
     return (
         <>
             <Aurora
@@ -36,9 +34,8 @@ export function AboutPage({
             />
             <motion.div
                 className="container mx-auto px-4 relative md:pb-16 pb-8"
-                ref={ref}
                 initial={{ y: -50, opacity: 0 }}
-                animate={inView ? { y: [0, -20, 0], x: [0], opacity: 1 } : {}}
+                animate={{ y: [0, -20, 0], x: [0], opacity: 1 }}
                 transition={{ duration: 0.8, ease: "easeInOut" }}
             >
                 <div className="w-full h-full relative border border-font-primary rounded-tl-3xl rounded-br-3xl py-8 md:py-32 flex items-center">
@@ -65,7 +62,7 @@ export function AboutPage({
                                 <p className="max-w-4xl">{`Over the years, I have gained extensive experience in developing software solutions for various industries, including marketing, finance, and e-commerce. My skills include working with modern frameworks like Next.js and Nest.js, automating testing processes, and building robust APIs`}</p>
                             </div>
                             <div className='w-fit'>
-                                <CursorFollow cursorText='Download' bgColor='bg-sixth text-white'>
+                                <LinkPreview imageSrc={DownloadCV} url="#" isStatic className='text-font-primary'>
                                     <button
                                         onClick={handleClickCV}
                                         className={`py-3 px-5 w-fit flex items-center gap-2 bg-transparent border-2 border-font-primary text-font-primary hover:text-sixth rounded-4xl cursor-pointer`}
@@ -73,7 +70,7 @@ export function AboutPage({
                                         {`Download CV`}
                                         <Icons name={IconNames.download} size={24} />
                                     </button>
-                                </CursorFollow>
+                                </LinkPreview>
                             </div>
                         </div>
                         <div>

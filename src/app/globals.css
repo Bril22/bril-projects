@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@config "../../tailwind.config.ts";
+
 :root {
   --background: #F8F8F8;
   --foreground: #d3d3d3;
@@ -12,13 +14,13 @@
 }
 
 @theme {
-  --color-font-primary: var(--foreground)
-  --color-primary: var(--primary);
+  --color-font-primary: var(--foreground) --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-third: var(--third);
   --color-fourth: var(--fourth);
   --color-fifth: var(--fifth);
   --color-sixth: var(--sixth);
+
 }
 
 body {
@@ -27,10 +29,13 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+
+
 @keyframes runText {
   from {
     transform: translateX(0%);
   }
+
   to {
     transform: translateX(-50%);
   }
@@ -40,6 +45,7 @@ body {
   from {
     transform: translateX(50%);
   }
+
   to {
     transform: translateX(0%);
   }

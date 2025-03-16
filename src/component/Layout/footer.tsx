@@ -15,8 +15,8 @@ export function Footer({
     socialMedia
 }: IFooter) {
     return (
-        <div className='bg-black/25 p-4'>
-            <div className='flex flex-col justify-start items-center border border-font-primary rounded-lg p-12 md:p-24 text-center relative'>
+        <div className='bg-black/25'>
+            <div className='flex flex-col justify-start items-center p-12 md:p-24 text-center relative'>
                 <div className='container mx-auto flex md:flex-row flex-col gap-8 w-full justify-between items-center'>
                     {/* <div
                         className={`md:flex justify-end items-center`}
