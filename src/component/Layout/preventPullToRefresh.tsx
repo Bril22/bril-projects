@@ -3,25 +3,39 @@
 import { useEffect, ReactNode } from "react";
 
 interface PreventPullToRefreshProps {
-  children: ReactNode;
+    children: ReactNode;
 }
 
 const PreventPullToRefresh: React.FC<PreventPullToRefreshProps> = ({ children }) => {
-  useEffect(() => {
-    const disablePullToRefresh = (event: TouchEvent) => {
-      if (event.touches.length > 1 || event.touches[0].clientY > 0) {
-        event.preventDefault();
-      }
-    };
+    useEffect(() => {
+        let startY = 0;
 
-    document.addEventListener("touchmove", disablePullToRefresh, { passive: false });
+        const onTouchStart = (event: TouchEvent) => {
+            startY = event.touches[0].clientY;
+        };
 
-    return () => {
-      document.removeEventListener("touchmove", disablePullToRefresh);
-    };
-  }, []);
+        const onTouchMove = (event: TouchEvent) => {
+            const currentY = event.touches[0].clientY;
+            const isAtTop = window.scrollY === 0;
+            const isAtBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight;
+            const isPullingDown = currentY > startY;
+            const isPullingUp = currentY < startY;
 
-  return <div className="touch-pan-x">{children}</div>;
+            if ((isAtTop && isPullingDown) || (isAtBottom && isPullingUp)) {
+                event.preventDefault();
+            }
+        };
+
+        document.addEventListener("touchstart", onTouchStart, { passive: true });
+        document.addEventListener("touchmove", onTouchMove, { passive: false });
+
+        return () => {
+            document.removeEventListener("touchstart", onTouchStart);
+            document.removeEventListener("touchmove", onTouchMove);
+        };
+    }, []);
+
+    return <div className="h-full w-full">{children}</div>;
 };
 
 export default PreventPullToRefresh;
