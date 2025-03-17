@@ -1,12 +1,13 @@
 'use client'
 import SplitText from "@/component/ui/text/split-text-animation";
 import Image from "next/image";
-import PortfolioImage from '@public/portfolio/portfolio.png'
+import PortfolioImage from '@public/portfolio/portfolios.png'
 import PortfolioCover from '@public/portfolio/portfolio-cover.jpg'
 import { motion } from 'framer-motion'
 import { TextParallaxContent } from "@/component/ui/text/parallax-text";
 import { useEffect, useState } from "react";
 import { Tabs } from "@/component/ui/tabs/animated-tabs";
+import { Card, CardDemo, CardSkeletonContainer, Skeleton } from "@/component/ui/card/block-animated-card";
 
 const DummyContent = () => {
     return (
@@ -51,26 +52,26 @@ const tabs = [
             </div>
         ),
     },
-    {
-        title: "Content",
-        value: "content",
-        content: (
-            <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
-                <p>Content tab</p>
-                <DummyContent />
-            </div>
-        ),
-    },
-    {
-        title: "Random",
-        value: "random",
-        content: (
-            <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
-                <p>Random tab</p>
-                <DummyContent />
-            </div>
-        ),
-    },
+    // {
+    //     title: "Content",
+    //     value: "content",
+    //     content: (
+    //         <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
+    //             <p>Content tab</p>
+    //             <DummyContent />
+    //         </div>
+    //     ),
+    // },
+    // {
+    //     title: "Random",
+    //     value: "random",
+    //     content: (
+    //         <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-br from-purple-700 to-violet-900">
+    //             <p>Random tab</p>
+    //             <DummyContent />
+    //         </div>
+    //     ),
+    // },
 ];
 export default function Portfolio() {
     const [repo, setRepo] = useState<any[]>()
@@ -92,26 +93,28 @@ export default function Portfolio() {
     }, []);
     return (
         <>
-            <div className="flex flex-col md:gap-16 gap-8">
-                <TextParallaxContent
-                    imgUrl={PortfolioCover}
-                    overlayImage={PortfolioImage}
-                    heading="Welcome to My Portfolio!"
-                >
-                    <div className='grid md:grid-cols-3 grid-cols-1 gap-8 w-full container mx-auto px-4'>
-                        {repo?.map((item, i) => (
-                            <div key={i} className="p-4 rounded-md shadow-md bg-third flex flex-col items-start">
-                                <div className="flex items-center mb-2">
-                                    <div className="w-4 h-4 bg-yellow-300 rounded-md mr-2"></div>
-                                    <h3 className="font-bold text-lg">{item.name}</h3>
-                                </div>
-                                <p className="text-sm">Language: {item.language || 'Not specified'}</p>
-                                <a href={item.html_url} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline mt-2">View Repository</a>
-                            </div>
-                        ))}
-                    </div>
-                </TextParallaxContent>
-                <div className="h-[20rem] md:h-[40rem] [perspective:1000px] relative b flex flex-col max-w-5xl mx-auto w-full items-start justify-start my-40">
+            <div className="flex flex-col md:gap-16 gap-8 container mx-auto px-4 pt-32">
+                <div className="flex md:flex-row flex-col gap-8 items-center justify-center h-[500px] text-start">
+                    <SplitText
+                        text={'Welcome to My Portfolio'}
+                        className="lg:text-8xl md:text-6xl text-5xl text-sixth font-bold md:w-1/2 md:!text-start text-center"
+                        delay={50}
+                        animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+                        animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+                        // easing="easeOutCubic"
+                        threshold={0.2}
+                        rootMargin="-50px"
+                        // textAlign="start"
+                    />
+                    <motion.div
+                        initial={{ y: -50, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.7, ease: "easeOut", delay: 1 }}
+                        className="relative h-24 md:h-44 [mask-image:radial-gradient(50%_50%_at_50%_50%,white_0%,transparent_100%)]">
+                        <Skeleton className="" />
+                    </motion.div>
+                </div>
+                <div className="h-[20rem] md:h-[40rem] [perspective:1000px] relative flex flex-col max-w-5xl mx-auto w-full items-start justify-start mb-40">
                     <Tabs tabs={tabs} contentClassName="mt-20" />
                 </div>
                 {/* <div className="relative bg-black h-full md:h-screen flex w-full items-center md:py-0 py-32">

@@ -28,8 +28,8 @@ export const TextParallaxContent = ({
                 {imgUrl && (
                     <StickyImage imgUrl={imgUrl} />
                 )}
-                {(heading && overlayImage ) && (
-                    <OverlayCopy heading={heading} overlayImage={overlayImage} />
+                {(heading || overlayImage ) && (
+                    <OverlayCopy heading={heading!} overlayImage={overlayImage} />
                 )}
             </div>
             {children}
@@ -62,7 +62,7 @@ const StickyImage = ({ imgUrl }: { imgUrl: string | StaticImageData }) => {
             className="sticky z-0 overflow-hidden bg-black"
         >
             <motion.div
-                className="absolute inset-0 bg-neutral-950/70"
+                className="absolute inset-0 bg-neutral-950/80"
                 style={{
                     opacity,
                 }}
@@ -115,7 +115,7 @@ const OverlayCopy = ({
                     transition={{ duration: 0.7, ease: "easeOut", delay: 1 }}
                     className="flex lg:w-fit w-full justify-center"
                 >
-                    <Image src={overlayImage} alt="port-image" width={500} height={500} className="rounded-full w-64 h-64 md:w-96 md:h-96 object-cover" loading="lazy" />
+                    <Image src={overlayImage} alt="port-image" width={500} height={500} className="w-64 h-64 md:w-96 md:h-96 object-cover" loading="lazy" />
                 </motion.div>
             )}
         </motion.div>
