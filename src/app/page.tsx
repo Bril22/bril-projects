@@ -8,6 +8,7 @@ import { ContactPage } from "@/component/pages/contact";
 import { ParallaxScroll } from "@/component/ui/scroll/parallax-scroll";
 import { motion, useMotionValue, useScroll, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
+import PreventPullToRefresh from "@/component/Layout/preventPullToRefresh";
 export default function Home() {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -32,6 +33,7 @@ export default function Home() {
   const translateServiceY = useTransform(smoothScrollY, [0, 1], ["120rem", "0rem"]);
 
   return (
+
     <div className="flex flex-col">
       <div ref={containerRef} className="relative">
         {/* About */}
@@ -56,5 +58,6 @@ export default function Home() {
       </div>
       <div className="h-20 md:h-36" />
     </div>
+
   );
 }
