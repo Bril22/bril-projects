@@ -85,14 +85,32 @@ function NavBar({
                             {/* HAMBURGER BUTTON FOR MOBILE */}
                             <div className="md:hidden">
                                 <button
-                                    className="p-2 rounded-md outline-none focus:border-gray-400 focus:border"
+                                    className="p-2 border rounded-full outline-none focus:border-gray-400 focus:border relative z-50 right-4"
                                     onClick={() => setNavbar(!navbar)}
                                 >
-                                    {navbar ? (
-                                        <Icons name={IconNames.close} size={30} className="text-font-primary" />
-                                    ) : (
-                                        <Icons name={IconNames["3-line-menu"]} size={30} className="text-font-primary" />
-                                    )}
+                                    <AnimatePresence mode="wait">
+                                        {navbar ? (
+                                            <motion.div
+                                                key="close"
+                                                initial={{ opacity: 0, rotate: -90 }}
+                                                animate={{ opacity: 1, rotate: 0 }}
+                                                exit={{ opacity: 0, rotate: 90 }}
+                                                transition={{ duration: 0.2 }}
+                                            >
+                                                <Icons name={IconNames.close} size={30} className="text-font-primary" />
+                                            </motion.div>
+                                        ) : (
+                                            <motion.div
+                                                key="menu"
+                                                initial={{ opacity: 0, rotate: 90 }}
+                                                animate={{ opacity: 1, rotate: 0 }}
+                                                exit={{ opacity: 0, rotate: -90 }}
+                                                transition={{ duration: 0.2 }}
+                                            >
+                                                <Icons name={IconNames["3-line-menu"]} size={30} className="text-font-primary" />
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
                                 </button>
                             </div>
                         </div>
@@ -128,15 +146,15 @@ function NavBar({
                                 onClick={() => setNavbar(false)}
                             />
                             <motion.div
-                                initial={{ opacity: 0, y: -50 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, y: -50 }}
-                                transition={{ duration: 0.5 }}
-                                className="fixed w-full pb-3 bg-fifth z-50"
+                                initial={{ opacity: 0, clipPath: "polygon(100% 0%, 100% 0%, 100% 0%, 100% 0%)" }}
+                                animate={{ opacity: 1, clipPath: "polygon(100% 0%, 100% 100%, 0% 100%, 0% 0%)" }}
+                                exit={{ opacity: 0, clipPath: "polygon(100% 0%, 100% 0%, 100% 0%, 100% 0%)" }}
+                                transition={{ duration: 0.6, ease: "easeInOut" }}
+                                className="fixed w-3/4 right-4 top-4 pb-3 bg-fifth z-40 rounded-2xl"
                             >
-                                <ul className="h-fit w-full flex flex-col items-center justify-start py-8 gap-4">
+                                <ul className="h-fit w-full flex flex-col items-start justify-center py-16 pb-8 gap-4 px-8">
                                     {menu?.map((item, i) => (
-                                        <li key={i} className={`text-xl text-font-primary py-2 px-6 text-center hover:bg-sixth md:hover:text-sixth md:hover:bg-transparent ${active === item.href ? '!border-sixth !border-b-4' : ''}`}>
+                                        <li key={i} className={`text-xl font-bold text-font-primary py-2 md:px-6 text-start hover:bg-sixth md:hover:text-sixth md:hover:bg-transparent ${active === item.href ? '!border-sixth !border-b-4' : ''}`}>
                                             <Link href={item?.href!} onClick={() => setNavbar(!navbar)}>
                                                 {item.label}
                                             </Link>

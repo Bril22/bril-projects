@@ -14,7 +14,6 @@
     "@radix-ui/react-hover-card": "^1.1.6",
     "@react-spring/web": "^9.7.5",
     "@sparticuz/chromium": "^106.0.2",
-    "@studio-freight/react-lenis": "^0.0.47",
     "@tabler/icons-react": "^3.31.0",
     "@types/react-syntax-highlighter": "^15.5.13",
     "axios": "^1.7.9",
