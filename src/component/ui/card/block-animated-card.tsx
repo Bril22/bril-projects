@@ -5,26 +5,9 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import DatabaseImage from "@public/skills/database.png"
 import TailwindImage from "@public/skills/tailwind.png"
-import NextImage from '@public/skills/nextjs.png'
+import NextImage from '@public/skills/nextjs-white.png'
 import TypescriptImage from "@public/skills/typescript.png"
 import NestImage from "@public/skills/nest.png"
-// import { GoCopilot } from "react-icons/go";
-
-export function CardDemo() {
-    return (
-        <Card>
-            <CardSkeletonContainer>
-                <Skeleton />
-            </CardSkeletonContainer>
-            <CardTitle>Damn good card</CardTitle>
-            <CardDescription>
-                A card that showcases a set of tools that you use to create your
-                product.
-            </CardDescription>
-        </Card>
-    );
-}
-
 export const Skeleton = ({
     className
 }: {
@@ -102,11 +85,11 @@ export const Skeleton = ({
                 </Container>
             </div>
 
-            <div className="h-40 w-px absolute m-auto z-40 bg-gradient-to-b from-transparent via-cyan-500 to-transparent animate-move">
+            {/* <div className="h-40 w-px absolute m-auto z-40 bg-gradient-to-b from-transparent via-cyan-500 to-transparent animate-move">
                 <div className="w-10 h-32 top-1/2 -translate-y-1/2 absolute -left-10">
                     <Sparkles />
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };

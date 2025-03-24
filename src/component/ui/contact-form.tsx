@@ -66,7 +66,7 @@ export default function ContactForm() {
 
     return (
         <div className="container mx-auto flex md:flex-row flex-col gap-6">
-            <form onSubmit={handleSubmit} className="rounded-lg relative w-full p-8 md:p-16 border border-dashed border-sixth flex flex-col gap-6 bg-black/20">
+            <form onSubmit={handleSubmit} className="rounded-lg relative w-full p-8 md:p-16 flex flex-col gap-6 bg-black/20">
                 <p className="font-semibold text-xl md:text-2xl">Send me a message</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <input type="text" name="firstName" placeholder="Your Name" value={formData.firstName} onChange={handleChange} required className="w-full p-2 border border-sixth/20 bg-fourth rounded-lg focus:outline-sixth" />
@@ -99,14 +99,9 @@ export default function ContactForm() {
                 ) : (
                     <p className="mt-2 text-green-600">{success}</p>
                 )}
-
-                <Icons name={IconNames["angle-border"]} size={24} className={`absolute -top-1 left-0 rotate-90 text-sixth`} />
-                <Icons name={IconNames["angle-border"]} size={24} className={`absolute -bottom-1 left-0 -rotate-90 rotate-x-180 text-sixth`} />
-                <Icons name={IconNames["angle-border"]} size={24} className={`absolute -top-1 right-0 rotate-90 rotate-x-180 text-sixth`} />
-                <Icons name={IconNames["angle-border"]} size={24} className={`absolute -bottom-1 right-0 -rotate-90 text-sixth`} />
                 <Image alt="ellise" src={Ellipse} width={500} height={500} className="absolute top-6 right-8 -rotate-90 w-96 rounded-full -z-10" />
             </form>
-            <div className="rounded-lg relative w-full md:w-1/3 p-8 border border-dashed border-sixth flex flex-col gap-6 h-full">
+            <div className="rounded-lg relative w-full md:w-1/3 p-8 flex flex-col gap-6 h-full">
                 <div className="flex flex-col gap-4 items-start justify-center">
                     <div className="rounded-full p-3 bg-black/20">
                         <Icons name={IconNames.email} size={28} className="text-sixth" />

@@ -20,7 +20,7 @@ export function ServicesPage() {
                 transition={{ duration: 0.7, ease: "easeOut" }}
                 className="container mx-auto px-4 relative flex flex-col gap-8 md:gap-16 items-center justify-center"
             >
-                <div className='flex flex-col md:gap-8 gap-4 items-center text-center justify-center'>
+                <div className='flex flex-col md:gap-8 gap-4 items-center text-center justify-center w-full'>
                     <ButtonBorderOnlyAngle label='My Specialization Services' textColor='text-sixth' />
                     <h2 className="md:text-6xl text-4xl font-bold">{`What I Do`}</h2>
                     <p className='max-w-xl'>{`Develop comprehensive content strategies tailored to your unique goals and target audience, ensuring that every piece of content.`}</p>

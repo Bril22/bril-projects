@@ -35,6 +35,11 @@ const nextConfig = {
         hostname: 'api.microlink.io',
         pathname: '**',
       },
+      {
+        protocol: 'https',
+        hostname: 'assets.aceternity.com',
+        pathname: '**',
+      }
     ],
     // remotePatterns: ['images.unsplash.com', 'cdn.sanity.io', 'mill3.studio', 'kota-content.b-cdn.net', 'cdn.dribbble.com', 'plus.unsplash.com'],
   },
