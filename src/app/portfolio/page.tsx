@@ -100,13 +100,13 @@ const tabs = [
         value: "automation-testing",
         content: (
             <div className="w-full overflow-hidden rounded-2xl relative h-full text-xl md:text-4xl font-bold text-white">
-                <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 w-full h-full">
+                <div className="grid lg:grid-cols-3 bg-gr md:grid-cols-2 grid-cols-1 gap-6 w-full h-full">
                     {code?.map((item, i) => (
                         <div key={i} className="mx-auto w-full">
                             <CodeBlock
                                 language="jsx"
                                 filename={fileNames[i]}
-                                className="bg-fourth"
+                                className="bg-gradient-to-br from-third from-60% to-fifth"
                                 // highlightLines={[9, 13, 14, 18]}
                                 code={item}
                             />
