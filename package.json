@@ -15,7 +15,8 @@
     "@react-spring/web": "^9.7.5",
     "@sparticuz/chromium": "^106.0.2",
     "@studio-freight/react-lenis": "^0.0.47",
-    "@tabler/icons-react": "^3.30.0",
+    "@tabler/icons-react": "^3.31.0",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "axios": "^1.7.9",
     "cheerio": "^1.0.0",
     "class-variance-authority": "^0.7.1",
@@ -38,6 +39,7 @@
     "react-dom": "^19.0.0",
     "react-google-recaptcha": "^3.1.0",
     "react-intersection-observer": "^9.15.1",
+    "react-syntax-highlighter": "^15.6.1",
     "resend": "^4.1.2",
     "tailwind-merge": "^3.0.2",
     "tailwindcss-animate": "^1.0.7"

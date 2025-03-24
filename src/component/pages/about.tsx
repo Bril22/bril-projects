@@ -5,11 +5,8 @@ import { IMainMenu } from '@/constants/layout'
 import Link from 'next/link';
 import { Icons } from '../icons';
 import Image from 'next/image';
-import Ellipse from '@public/ellipse.png'
 import { IconNames } from '../icons/interface';
 import * as motion from "motion/react-client"
-import { useInView } from "react-intersection-observer";
-import { CursorFollow } from '../ui/cursor/cursor-follow';
 import Aurora from '../ui/background/aurora-background';
 import { LinkPreview } from '../ui/cursor/link-preview';
 import DownloadCV from '@public/download-cv.jpeg'
@@ -46,11 +43,9 @@ export function AboutPage({
                                 <div className="flex items-center gap-3">
                                     {socialMedia?.map((item, i) => (
                                         <Link key={i} href={item.href!} target="_blank" aria-label={`Link to ${item.icon}`}>
-                                            <CursorFollow cursorText={item.label} bgColor='bg-sixth text-white'>
-                                                <div className="border rounded-full p-2 hover:border-sixth hover:text-sixth" aria-hidden="true">
-                                                    <Icons name={item.icon!} size={24} />
-                                                </div>
-                                            </CursorFollow>
+                                            <div className="border rounded-full p-2 hover:border-sixth hover:text-sixth" aria-hidden="true">
+                                                <Icons name={item.icon!} size={24} />
+                                            </div>
                                         </Link>
                                     ))}
                                 </div>

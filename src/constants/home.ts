@@ -119,19 +119,22 @@ export const MyServices: ICardSkills[] = [
         title: "Web Application Development",
         description:
             "Building scalable and high-performance web applications that solve real-world problems. Using modern frameworks like Next.js and NestJS, I deliver apps that are secure, maintainable, and ready to grow with your business.",
-        image: WebAppImage
+        image: WebAppImage,
+        href: "/portfolio"
     },
     {
         title: "Automation Testing",
         description:
             "Ensuring your web applications are bug-free and reliable with comprehensive automation testing. By writing robust test scripts, I save you time and resources while maintaining the highest quality standards.",
-        image: AutomationImage
+        image: AutomationImage,
+        href: "/portfolio"
     },
     {
         title: "User Experience (UX) Design",
         description:
             "Crafting intuitive and user-friendly interfaces that keep your audience engaged. From wireframes to prototypes, I focus on delivering a seamless and enjoyable experience for your users.",
-        image: UXImage
+        image: UXImage,
+        href: "/portfolio"
     },
 ];
 

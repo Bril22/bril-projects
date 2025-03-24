@@ -1,11 +1,13 @@
 'use client'
 import React from 'react'
-import { Icons } from '../icons'
-import { IconNames } from '../icons/interface'
 import Image, { StaticImageData } from 'next/image';
-import Ellipse from "@public/ellipse-card.png";
-import { motion } from "framer-motion";
 import Link from 'next/link';
+import { DirectionAwareHover } from './card/direction-hover';
+import { Marquee } from './marquee';
+import * as motion from "motion/react-client"
+import { useInView } from 'react-intersection-observer';
+
+
 export interface ICardSkills {
     title?: string;
     description?: string;
@@ -19,12 +21,17 @@ export const CardSkills = ({
     title
 }: ICardSkills) => {
 
+    const { ref: skillRef, inView: skillView } = useInView({
+        threshold: 0.1,
+        triggerOnce: true
+    });
     return (
-        <div className="flex flex-col gap-8 justify-center items-center text-center relative w-fit p-8 border border-dashed border-sixth hover:border-none hover:scale-105 hover:shadow-2xl bg-sixth/5">
-            <Icons name={IconNames["angle-border"]} size={24} className={`absolute -top-1 left-0 rotate-90 text-sixth`} />
-            <Icons name={IconNames["angle-border"]} size={24} className={`absolute -bottom-1 left-0 -rotate-90 rotate-x-180 text-sixth`} />
-            <Icons name={IconNames["angle-border"]} size={24} className={`absolute -top-1 right-0 rotate-90 rotate-x-180 text-sixth`} />
-            <Icons name={IconNames["angle-border"]} size={24} className={`absolute -bottom-1 right-0 -rotate-90 text-sixth`} />
+        <motion.div
+            ref={skillRef}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={skillView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col gap-8 justify-center items-center text-center relative w-fit p-8 hover:scale-105 hover:shadow-2xl bg-sixth/5 rounded-lg">
             <div className='rounded-full p-2'>
                 {image && (
                     <Image alt='skills' src={image} width={400} height={400} className='w-16' />
@@ -32,8 +39,8 @@ export const CardSkills = ({
             </div>
             <p className={`text-2xl font-semibold`}>{title}</p>
             <p className={`text-lg`}>{description}</p>
-            <Image alt='ellipse' src={Ellipse} fill className='w-full absolute' />
-        </div>
+            <div className='bg-sixth/40 w-32 h-32 blur-3xl absolute' />
+        </motion.div>
     )
 }
 
@@ -45,20 +52,16 @@ export const SkillsSection = ({
     skills
 }: ISkillsSection) => {
     return (
-        <div className="flex flex-col gap-4 justify-center items-center text-center relative w-full p-8 border border-dashed border-sixth">
-            <Icons name={IconNames["angle-border"]} size={24} className={`absolute -top-1 left-0 rotate-90 text-sixth`} />
-            <Icons name={IconNames["angle-border"]} size={24} className={`absolute -bottom-1 left-0 -rotate-90 rotate-x-180 text-sixth`} />
-            <Icons name={IconNames["angle-border"]} size={24} className={`absolute -top-1 right-0 rotate-90 rotate-x-180 text-sixth`} />
-            <Icons name={IconNames["angle-border"]} size={24} className={`absolute -bottom-1 right-0 -rotate-90 text-sixth`} />
+        <div className="flex flex-col gap-4 justify-center items-center text-center relative w-full py-8">
             <div className='relative overflow-x-hidden w-full flex'>
-                <div className="whitespace-nowrap flex gap-8 animate-[runText_20s_linear_infinite]">
-                    {skills.concat(skills).map((item, i) => (
-                        <div key={i} className="flex flex-col items-center min-w-32 gap-4 h-full justify-end">
-                            <Image alt={item.title!} src={item.image!} width={400} height={400} className={`${item.title?.includes('Mongo') ? 'w-8' : 'w-16'}`} />
-                            <p className="text-xl font-semibold">{item.title}</p>
+                <Marquee pauseOnHover className="[--duration:20s]">
+                    {skills.map((review) => (
+                        <div key={review.title} className="flex flex-col items-center min-w-32 gap-4 h-full justify-end">
+                            <Image alt={review.title!} src={review.image!} width={400} height={400} className={`${review.title?.includes('Mongo') ? 'w-8' : 'w-16'}`} />
+                            <p className="text-xl font-semibold">{review.title}</p>
                         </div>
                     ))}
-                </div>
+                </Marquee>
             </div>
         </div>
     )
@@ -70,33 +73,16 @@ export const CardWithBackground = ({
     return (
         <>
             {skills.map((item, i) => (
-                <Link href={'#'} key={i} className="group relative h-[400px] rounded-lg w-full perspective bg-black">
+                <Link href={item.href!} key={i} className="w-full relative group bg-black">
                     {/* Flip Container */}
-                    <motion.div className="relative w-full h-full transition-transform duration-700 transform-style preserve-3d group-hover:rotate-y-180">
-                        {/* Front Side - Image */}
-                        <div className="absolute inset-0">
-                            <Image
-                                src={item.image!}
-                                alt={item.title!}
-                                width={500}
-                                height={500}
-                                className="w-full h-full rounded-lg opacity-60 object-cover"
-                                loading='lazy'
-                            />
-                        </div>
-                    </motion.div>
-
-                    {/* Title (Front) */}
-                    <div className='absolute inset-0 flex w-full h-full items-end justify-center'>
-                        <h3 className="max-w-xs p-4 h-fit text-center flex items-end justify-center text-2xl font-bold transition-opacity duration-500 group-hover:opacity-0 shadow-2xl">
+                    <DirectionAwareHover imageUrl={item.image!} className='md:h-[450px] h-96 opacity-80'>
+                        <p className="font-bold text-md max-w-md">{item.description}</p>
+                    </DirectionAwareHover>
+                    <div className='absolute bottom-0 left-0 group-hover:hidden text-white w-full'>
+                        <h3 className="max-w-full p-4 h-fit text-center text-2xl font-bold">
                             {item.title}
                         </h3>
                     </div>
-
-                    {/* Description (Back) */}
-                    <p className="absolute inset-0 flex items-center justify-center text-lg font-medium bg-black/80 rounded-lg opacity-0 transition-opacity duration-500 group-hover:opacity-100 text-center px-2">
-                        {item.description}
-                    </p>
                 </Link>
             ))}
         </>

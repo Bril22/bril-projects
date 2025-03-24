@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { ButtonBorderOnlyAngle } from '../ui/button'
+import { ButtonBorderOnlyAngle, InteractiveHoverButton } from '../ui/button'
 import { IMainMenu } from '@/constants/layout'
 import Link from 'next/link';
 import { Icons } from '../icons';
@@ -9,7 +9,6 @@ import { IconNames } from '../icons/interface';
 import * as motion from "motion/react-client"
 import { useInView } from "react-intersection-observer";
 import { CustomBorder } from '../ui/custom-border';
-import { SkillsSection } from '../ui/card-skill';
 import { MySkills, OtherSkills } from '@/constants/home';
 
 interface IAbout {
@@ -45,7 +44,7 @@ export function ResumePage({
             </div>
             <div className='flex flex-col gap-6'>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-                    <div className='w-full flex flex-col gap-4 items-start justify-center relative p-8 border border-dashed border-sixth'>
+                    <div className='w-full flex flex-col gap-4 items-start justify-center relative p-8 hover:scale-105 hover:shadow-2xl bg-sixth/5 rounded-lg'>
                         <p className='text-2xl font-semibold'>{'Education'}</p>
                         <div className='w-full flex justify-between items-center'>
                             <p className='text-xs'>{`2017 - 2022`}</p>
@@ -53,22 +52,23 @@ export function ResumePage({
                         </div>
                         <p className='md:text-xl text-md font-semibold text-sixth'>{`Bachelor of Geophysical Engineering`}</p>
                         <p>{`Bandung Institute of Technology`}</p>
-                        <CustomBorder />
+                        <div className='bg-sixth/30 w-32 h-32 blur-3xl absolute' />
                     </div>
-                    <div className='w-full flex flex-col gap-4 items-start justify-center relative p-8 border border-dashed border-sixth'>
+                    <div className='w-full flex flex-col gap-4 items-start justify-center relative p-8 hover:scale-105 hover:shadow-2xl bg-sixth/5 rounded-lg '>
                         <p className='text-2xl font-semibold'>{'Publication'}</p>
                         <p className='text-xs'>{`2022`}</p>
                         <p className='md:text-xl text-md font-semibold text-sixth'>{`Seismic Hazard Potential in Yogyakarta Based on HVSR Curve Estimation`}</p>
-                        <div onClick={handleClickJournal} className='w-full flex items-center cursor-pointer hover:scale-x-110 hover:translate-x-1 transition-transform duration-300'>
+                        {/* <div onClick={handleClickJournal} className='w-full flex items-center cursor-pointer hover:scale-x-110 hover:translate-x-1 transition-transform duration-300'>
                             <p>{`International Journal Of Physics`}</p>
                             <Icons name={IconNames['arrow-right']} size={24} className='' />
-                        </div>
-                        <CustomBorder />
+                        </div> */}
+                        <InteractiveHoverButton onClick={handleClickJournal}>International Journal Of Physics</InteractiveHoverButton>
+                        <div className='bg-sixth/30 w-32 h-32 blur-3xl absolute' />
                     </div>
-                    <div className='w-full md:col-span-2 lg:col-auto flex flex-col gap-4 items-start justify-between relative p-8 border border-dashed border-sixth'>
+                    <div className='w-full md:col-span-2 lg:col-auto flex flex-col gap-4 items-start justify-between relative p-8 hover:scale-105 hover:shadow-2xl bg-sixth/5 rounded-lg '>
                         <div className='flex flex-col gap-4'>
                             <p className='text-2xl font-semibold'>{'Stay With Me'}</p>
-                            <div className="flex items-center gap-3">
+                            <div className="flex items-center gap-3 relative z-10">
                                 {socialMedia?.map((item, i) => (
                                     <Link key={i} href={item.href!} target="_blank" aria-label={`Link to ${item.icon}`}>
                                         <div className="border rounded-full p-2 hover:border-sixth hover:text-sixth" aria-hidden="true">
@@ -85,11 +85,11 @@ export function ResumePage({
                             {`Download CV`}
                             <Icons name={IconNames.download} size={24} />
                         </button>
-                        <CustomBorder />
+                        <div className='bg-sixth/30 w-32 h-32 blur-3xl absolute' />
                     </div>
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-                    <div className='col-span-1 w-full grid gap-4 relative p-8 border border-dashed border-sixth'>
+                    <div className='col-span-1 w-full grid gap-4 relative p-8 hover:scale-105 hover:shadow-2xl bg-sixth/5 rounded-lg '>
                         <p className='text-2xl font-semibold'>{'Software Engineer Experiences'}</p>
                         <div className='grid grid-cols-2 w-full gap-6'>
                             <div className='flex flex-col gap-2'>
@@ -113,9 +113,9 @@ export function ResumePage({
                                 <p>{`Hoomix`}</p>
                             </div>
                         </div>
-                        <CustomBorder />
+                        <div className='bg-sixth/30 w-32 h-32 blur-3xl absolute' />
                     </div>
-                    <div className='col-span-1 w-full grid gap-4 relative p-8 border border-dashed border-sixth'>
+                    <div className='col-span-1 w-full grid gap-4 relative p-8 hover:scale-105 hover:shadow-2xl bg-sixth/5 rounded-lg '>
                         <p className='text-2xl font-semibold'>{'QA Experiences'}</p>
                         <div className='grid grid-cols-2 w-full gap-6'>
                             <div className='flex flex-col gap-2'>
@@ -134,11 +134,11 @@ export function ResumePage({
                                 <p>{`Bank Central Asia`}</p>
                             </div>
                         </div>
-                        <CustomBorder />
+                        <div className='bg-sixth/30 w-32 h-32 blur-3xl absolute' />
                     </div>
-                    <div className='md:col-span-2 lg:col-auto w-full flex flex-col justify-start gap-6 items-start relative p-8 border border-dashed border-sixth'>
+                    <div className='md:col-span-2 lg:col-auto w-full flex flex-col justify-start gap-6 items-start relative p-8 hover:scale-105 hover:shadow-2xl bg-sixth/5 rounded-lg '>
                         <p className='text-2xl font-semibold'>{'Skills'}</p>
-                        <div className='grid grid-cols-4 w-full gap-6 justify-items-center'>
+                        <div className='relative z-10 grid grid-cols-4 w-full gap-6 justify-items-center'>
                             {AllSkills.map((item, i) => (
                                 <div key={i} className="flex flex-col items-center min-w-32 gap-4 h-full justify-end">
                                     <Image alt={item.title!} src={item.image!} width={400} height={400} className={`transition-transform duration-300 ease-in-out transform hover:scale-125 ${item.title?.includes('Mongo') ? 'w-4' : 'w-8'}`} />
@@ -146,7 +146,7 @@ export function ResumePage({
                                 </div>
                             ))}
                         </div>
-                        <CustomBorder />
+                        <div className='bg-sixth/30 w-32 h-32 blur-3xl absolute' />
                     </div>
                 </div>
             </div>

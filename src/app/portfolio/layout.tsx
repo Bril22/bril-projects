@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Contact Me | Brilian Natanael Zega",
-    description: "Together, we can turn visions into reality and create outstanding digital experiences. Let's talk about how we can work together!",
+    title: "My Portfolio | Brilian Natanael Zega",
+    description: "Explore my portfolio showcasing innovative web development projects, creative designs, and technical expertise. Specializing in React, Next.js, and modern web technologies.",
 };
 
 export default function Layout({

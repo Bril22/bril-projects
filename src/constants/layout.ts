@@ -15,6 +15,11 @@ export const MainMenu: IMainMenu[] = [
     active: true,
   },
   {
+    label: "Portfolio",
+    href: "/portfolio",
+    active: true,
+  },
+  {
     label: "About",
     href: "/about",
     active: true,
@@ -24,11 +29,7 @@ export const MainMenu: IMainMenu[] = [
   //   href: "/services",
   //   active: true,
   // },
-  // {
-  //   label: "Portfolio",
-  //   href: "/portfolio",
-  //   active: true,
-  // },
+
   {
     label: "Contact",
     href: "/contact",

@@ -32,6 +32,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <ReactLenis root>
         <body
+          suppressHydrationWarning
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <PreventPullToRefresh>

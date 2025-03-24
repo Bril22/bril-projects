@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React from 'react'
 import { ButtonBorderOnlyAngle } from '../ui/button'
 import { CardSkills, SkillsSection } from '../ui/card-skill'
 import { MySkills, OtherSkills } from '@/constants/home'
@@ -8,10 +8,6 @@ import { useInView } from "react-intersection-observer";
 
 export function SkillsPage() {
     const { ref: servicesRef, inView: serviceView } = useInView({
-        threshold: 0.1,
-        triggerOnce: true
-    });
-    const { ref: skillRef, inView: skillView } = useInView({
         threshold: 0.1,
         triggerOnce: true
     });
@@ -31,17 +27,14 @@ export function SkillsPage() {
                     <p className='max-w-4xl'>{`Every pixel, every line of code, and every solution I craft is driven by a passion for innovation and problem-solving. My expertise spans across frontend magic, backend logic, and cloud scalability—transforming ideas into seamless digital experiences.`}</p>
                 </motion.div>
                 <div className='flex flex-col gap-8 w-full'>
-                    <motion.div
+                    <div
                         className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'
-                        ref={skillRef}
-                        initial={{ opacity: 0, scale: 0.5 }}
-                        animate={skillView ? { opacity: 1, scale: 1 } : {}}
-                        transition={{ duration: 0.8 }}
+                        
                     >
                         {MySkills?.map((item, i) => (
                             <CardSkills key={i} title={item.title} description={item.description} image={item.image} />
                         ))}
-                    </motion.div>
+                    </div>
                     <SkillsSection skills={OtherSkills} />
                 </div>
             </div>
