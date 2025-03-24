@@ -8,7 +8,7 @@ import { useInView } from "react-intersection-observer";
 
 export function ServicesPage() {
     const { ref: servicesRef, inView: serviceView } = useInView({
-        threshold: 0.1,
+        threshold: 0.4,
         triggerOnce: true
     });
     return (

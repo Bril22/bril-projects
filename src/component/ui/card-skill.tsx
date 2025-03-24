@@ -1,10 +1,13 @@
 'use client'
 import React from 'react'
 import Image, { StaticImageData } from 'next/image';
-import Ellipse from "@public/ellipse-card.png";
 import Link from 'next/link';
 import { DirectionAwareHover } from './card/direction-hover';
 import { Marquee } from './marquee';
+import * as motion from "motion/react-client"
+import { useInView } from 'react-intersection-observer';
+
+
 export interface ICardSkills {
     title?: string;
     description?: string;
@@ -18,8 +21,17 @@ export const CardSkills = ({
     title
 }: ICardSkills) => {
 
+    const { ref: skillRef, inView: skillView } = useInView({
+        threshold: 0.1,
+        triggerOnce: true
+    });
     return (
-        <div className="flex flex-col gap-8 justify-center items-center text-center relative w-fit p-8 hover:scale-105 hover:shadow-2xl bg-sixth/5 rounded-lg">
+        <motion.div
+            ref={skillRef}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={skillView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.8 }}
+            className="flex flex-col gap-8 justify-center items-center text-center relative w-fit p-8 hover:scale-105 hover:shadow-2xl bg-sixth/5 rounded-lg">
             <div className='rounded-full p-2'>
                 {image && (
                     <Image alt='skills' src={image} width={400} height={400} className='w-16' />
@@ -28,7 +40,7 @@ export const CardSkills = ({
             <p className={`text-2xl font-semibold`}>{title}</p>
             <p className={`text-lg`}>{description}</p>
             <div className='bg-sixth/40 w-32 h-32 blur-3xl absolute' />
-        </div>
+        </motion.div>
     )
 }
 
@@ -61,7 +73,7 @@ export const CardWithBackground = ({
     return (
         <>
             {skills.map((item, i) => (
-                <Link href={'#'} key={i} className="w-full relative group bg-black">
+                <Link href={item.href!} key={i} className="w-full relative group bg-black">
                     {/* Flip Container */}
                     <DirectionAwareHover imageUrl={item.image!} className='md:h-[450px] h-96 opacity-80'>
                         <p className="font-bold text-md max-w-md">{item.description}</p>

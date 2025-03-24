@@ -8,6 +8,8 @@ import { Tabs } from "@/component/ui/tabs/animated-tabs";
 import { Skeleton } from "@/component/ui/card/block-animated-card";
 import { getRepositories } from "@/lib/api";
 import { ThreeDMarquee } from "@/component/ui/marquee";
+import { CodeBlock } from "@/component/ui/code-block";
+import { code } from "@/constants/portfolio";
 
 const images = [
     "https://assets.aceternity.com/cloudinary_bkp/3d-card.png",
@@ -41,6 +43,8 @@ const images = [
     "https://assets.aceternity.com/cloudinary_bkp/Lamp_hlq3ln.png",
     "https://assets.aceternity.com/macbook-scroll.png",
 ];
+
+const fileNames = ['test-login.js', 'test-login.robot', 'test-login.java'];
 
 const tabs = [
     {
@@ -81,13 +85,12 @@ const tabs = [
         value: "e-commerce",
         content: (
             <div className="w-full overflow-hidden rounded-2xl relative h-full text-xl md:text-4xl font-bold text-white">
-                <div className="grid grid-cols-3 gap-4 w-full h-full">
-                    <Image src={'/portfolio/landing-page/decor.png'} alt="decor-landing" width={500} height={900} className="h-[600px] md:h-[800px] w-full object-cover object-top rounded-2xl" />
-                    <Image src={'/portfolio/landing-page/decor.png'} alt="decor-landing" width={500} height={900} className="h-[600px] md:h-[800px] w-full object-cover object-top rounded-2xl" />
-                    <Image src={'/portfolio/landing-page/decor.png'} alt="decor-landing" width={500} height={900} className="h-[600px] md:h-[800px] w-full object-cover object-top rounded-2xl" />
-                    {/* <Image src={'/portfolio/landing-page/decor.png'} alt="decor-landing" width={500} height={900} className="h-[600px] md:h-[800px] w-full object-cover object-top rounded-2xl" />
-                    <Image src={'/portfolio/landing-page/decor.png'} alt="decor-landing" width={500} height={900} className="h-[600px] md:h-[800px] w-full object-cover object-top rounded-2xl" /> */}
-
+                <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 w-full h-full">
+                    <Image src={'/portfolio/bapenda.png'} alt="bapenda" width={500} height={400} className="h-96 w-full object-cover object-left-top rounded-2xl" />
+                    <Image src={'/portfolio/furniro.png'} alt="furniro" width={500} height={900} className="h-96 w-full object-cover object-left-top rounded-2xl" />
+                    <Image src={'/portfolio/laporan-disbun.png'} alt="decor-landing" width={500} height={900} className="h-96 w-full object-cover object-left-top rounded-2xl" />
+                    <Image src={'/portfolio/sqm-dashboard-2.png'} alt="sqm-dashboard" width={500} height={900} className="h-96 w-full object-cover object-left-top rounded-2xl" />
+                    <Image src={'/portfolio/orders.png'} alt="orders" width={500} height={900} className="h-96 w-full object-cover object-left-top rounded-2xl" />
                 </div>
             </div>
         ),
@@ -97,13 +100,18 @@ const tabs = [
         value: "automation-testing",
         content: (
             <div className="w-full overflow-hidden rounded-2xl relative h-full text-xl md:text-4xl font-bold text-white">
-                <div className="grid grid-cols-3 gap-4 w-full h-full">
-                    <Image src={'/portfolio/landing-page/decor.png'} alt="decor-landing" width={500} height={900} className="h-[600px] md:h-[800px] w-full object-cover object-top rounded-2xl" />
-                    <Image src={'/portfolio/landing-page/decor.png'} alt="decor-landing" width={500} height={900} className="h-[600px] md:h-[800px] w-full object-cover object-top rounded-2xl" />
-                    <Image src={'/portfolio/landing-page/decor.png'} alt="decor-landing" width={500} height={900} className="h-[600px] md:h-[800px] w-full object-cover object-top rounded-2xl" />
-                    {/* <Image src={'/portfolio/landing-page/decor.png'} alt="decor-landing" width={500} height={900} className="h-[600px] md:h-[800px] w-full object-cover object-top rounded-2xl" />
-                    <Image src={'/portfolio/landing-page/decor.png'} alt="decor-landing" width={500} height={900} className="h-[600px] md:h-[800px] w-full object-cover object-top rounded-2xl" /> */}
-
+                <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 w-full h-full">
+                    {code?.map((item, i) => (
+                        <div key={i} className="mx-auto w-full">
+                            <CodeBlock
+                                language="jsx"
+                                filename={fileNames[i]}
+                                className="bg-fourth"
+                                // highlightLines={[9, 13, 14, 18]}
+                                code={item}
+                            />
+                        </div>
+                    ))}
                 </div>
             </div>
         ),
@@ -111,7 +119,6 @@ const tabs = [
 ];
 export default function Portfolio() {
     const [repo, setRepo] = useState<any[]>()
-
     const fetchRepositories = async () => {
         try {
             const repositories = await getRepositories();
