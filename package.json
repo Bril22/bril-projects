@@ -30,7 +30,7 @@
     "lightgallery": "^2.8.2",
     "lucide-react": "^0.482.0",
     "motion": "^12.4.7",
-    "next": "15.1.6",
+    "next": "15.1.11",
     "ogl": "^1.0.11",
     "puppeteer": "^24.1.1",
     "qss": "^3.0.0",
